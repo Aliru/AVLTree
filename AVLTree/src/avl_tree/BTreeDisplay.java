@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Point;
+import java.awt.Rectangle;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -20,10 +22,10 @@ public class BTreeDisplay extends JLabel
 	{
 		jfrm = new JFrame("Paint Demo");
 		panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		panel.setPreferredSize(new Dimension(500,500));
+		//jfrm.setLayout(null);
 		jfrm.add(panel);
 		jfrm.setSize(500, 500);
-		jfrm.setLocationByPlatform(true);
+		//jfrm.setLocationByPlatform(true);
 		jfrm.setVisible(true);
 	}
         
@@ -36,7 +38,8 @@ public class BTreeDisplay extends JLabel
                setText(value);
                //setHorizontalAlignment(pos);
                panel.add(this);
-               setLocation(x, y);
+               //setLocation(x, y);
+               setBounds(new Rectangle(new Point(x, y), getPreferredSize()));
                panel.add(new BTreeDisplay(tree.left,  x - 20, y + 20));
                panel.add(new BTreeDisplay(tree.right,  x + 20, y + 20));    
            }       

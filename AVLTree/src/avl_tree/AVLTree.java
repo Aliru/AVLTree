@@ -220,7 +220,7 @@ public class AVLTree
 			  newKeyNode.parent.adjustHeight();
 		}
 		return newKeyNode;
-		}
+	}
 		 
 	public void print() 
 	{	  
