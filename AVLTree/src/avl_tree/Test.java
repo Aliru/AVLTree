@@ -15,10 +15,10 @@ public class Test {
 		  System.out.println(root.getRight().getValue() + ", with height " + root.getRight().getHeight());
 		  tree.print();
 		  //tree.delete(8);
-		  SwingUtilities.invokeLater(new Runnable() { public void run() {new BTreeDisplay(root);}});
+		  SwingUtilities.invokeLater(new Runnable() { public void run() {new BTreeDisplay(root, 50, 250);}});
 		  //System.out.println(root.getLeft().getRight().getValue() + ", with height " + root.getLeft().getRight().getLeft().getHeight());
 		  //System.out.println(root.getRight().getRight().getValue() + ", with height " + root.getRight().getRight().getHeight());
-		  tree.print();  //new tree print for check GitHub
+		  //tree.print();  //new tree print for check GitHub
 	}
 
 }

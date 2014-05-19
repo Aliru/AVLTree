@@ -130,23 +130,23 @@ public class AVLTree
 		   //System.out.println(parent.value);
 		   return parent;
 		  }
-	return null;
+		return null;
 	}
 		 
-		 public void updateHeights(AVLNode fromParentOfDeletedLeaf)
-		 {
-			  AVLNode currentNode = fromParentOfDeletedLeaf;
-			  currentNode.adjustHeight();
-			  while (currentNode != null)
-			  {
-				   currentNode.adjustHeight();
-				   currentNode = currentNode.parent;
-			  }
-		 }
+	public void updateHeights(AVLNode fromParentOfDeletedLeaf)
+	{
+		AVLNode currentNode = fromParentOfDeletedLeaf;
+		currentNode.adjustHeight();
+		while (currentNode != null)
+		{
+			currentNode.adjustHeight();
+			currentNode = currentNode.parent;
+		}
+	}
 		  
 		 
-		 public AVLNode updateHeightsAndDetectKeyNode(AVLNode newNode) 
-		 {
+	public AVLNode updateHeightsAndDetectKeyNode(AVLNode newNode) 
+	{
 		 AVLNode keyNode = null;
 		 while (newNode.parent != null) 
 		 {
@@ -168,64 +168,62 @@ public class AVLTree
 			   break;
 		  }
 		 return keyNode;
-		 }
+	}
 		 
-		 public AVLNode lookup(int value) 
-		 {
-			 AVLNode currentNode = root;
-			 while (currentNode != null) 
+	public AVLNode lookup(int value) 
+	{
+		AVLNode currentNode = root;
+		while (currentNode != null) 
+		{
+			 if (currentNode.value == value)
+				  return currentNode;
+			 else
+				  currentNode = value < currentNode.value ? currentNode.left : currentNode.right;
+		}
+		System.out.println("The AVLTree doesn't contain " + value);
+		return null;
+	}
+		 
+	public AVLNode adjustTreeByRotation(AVLNode keyNode) 
+	{
+		AVLNode newKeyNode = null;
+		int bf_keyNode = keyNode.getBalanceFactor();
+		if (bf_keyNode == 2) 
+		{
+			 if (keyNode.left.getBalanceFactor() == -1) // LR
+				 keyNode.setLeft(keyNode.left.rotateLeft());
+			 newKeyNode = keyNode.rotateRight();
+		} 
+		else 
+			 if (bf_keyNode == -2) 
 			 {
-			   if (currentNode.value == value)
-				   return currentNode;
-			   else
-				   currentNode = value < currentNode.value ? currentNode.left : currentNode.right;
-			 }
-			  System.out.println("The AVLTree doesn't contain " + value);
-			  return null;
-		  }
-		 
-		 public AVLNode adjustTreeByRotation(AVLNode keyNode) 
-		 {
-		  AVLNode newKeyNode = null;
-		  int bf_keyNode = keyNode.getBalanceFactor();
-		  if (bf_keyNode == 2) 
-		  {
-			   if (keyNode.left.getBalanceFactor() == -1) // LR
-				   keyNode.setLeft(keyNode.left.rotateLeft());
-			   newKeyNode = keyNode.rotateRight();
-		  } 
-		  else 
-			  if (bf_keyNode == -2) 
-			  {
 				  if (keyNode.right.getBalanceFactor() == 1) // RL
 					  keyNode.setRight(keyNode.right.rotateRight());
 				  newKeyNode = keyNode.rotateLeft();
-			  }
-			  else 
-			  {
+			 }
+			 else 
+			 {
 				  new Exception("There are some bugs").printStackTrace();
-			  }
+			 }
 		 
-		  if (keyNode.parent == null) 
-		  {
+		if (keyNode.parent == null) 
+		{
 			   root = newKeyNode;
 			   root.parent = null;
-		  }
-		  else 
-		  {
+		}
+		else 
+		{
 			  if (keyNode == keyNode.parent.left)
 				  keyNode.parent.setLeft(newKeyNode);
 			  else
 				  keyNode.parent.setRight(newKeyNode);
 			  newKeyNode.parent.adjustHeight();
-		  }
-		  return newKeyNode;
-		 }
+		}
+		return newKeyNode;
+		}
 		 
-		 public void print() 
-		 {	  
-			   root.print_inorder();
-		 }
-		 
-		 	  
+	public void print() 
+	{	  
+		root.print_inorder();
+	}	 	  
 }

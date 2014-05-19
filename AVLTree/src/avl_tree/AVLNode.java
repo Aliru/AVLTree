@@ -142,28 +142,30 @@ public class AVLNode
 		 }
 		 
 		 
-		 public AVLNode rotateRight(){
-		  AVLNode newRight = new AVLNode(this);
-		  newRight.height = getRightHeight() + 1;
-		  newRight.setLeft(left.right);
-		  left.setRight(newRight);
-		  left.adjustHeight();
-		  return left;
+		 public AVLNode rotateRight()
+		 {
+			  AVLNode newRight = new AVLNode(this);
+			  newRight.height = getRightHeight() + 1;
+			  newRight.setLeft(left.right);
+			  left.setRight(newRight);
+			  left.adjustHeight();
+			  return left;
 		 }
 		 
-		  public AVLNode rotateLeft(){
-		  AVLNode newLeft = new AVLNode(this);
-		  newLeft.height = getLeftHeight() + 1;
-		  newLeft.setRight(right.left);
-		  right.setLeft(newLeft);
-		  right.adjustHeight();
-		  return right;
-		 }
+		  public AVLNode rotateLeft()
+		  {
+			  AVLNode newLeft = new AVLNode(this);
+			  newLeft.height = getLeftHeight() + 1;
+			  newLeft.setRight(right.left);
+			  right.setLeft(newLeft);
+			  right.adjustHeight();
+			  return right;
+		  }
 		 
 		 public void print_inorder()
 		 {
 			  if (left != null) left.print_inorder();
-			  System.out.print(value + " ");
+			  		System.out.print(value + " ");
 			  if (right != null) right.print_inorder();
 		 }
 		 
