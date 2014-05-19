@@ -31,17 +31,15 @@ public class BTreeDisplay extends JLabel
 
 	BTreeDisplay(AVLNode tree, int x, int y)
 	{ 
-	if (tree != null) 
-	{ 
-	String value = String.valueOf(tree.value); 
-	int pos = SwingConstants.CENTER;
-	setText(value);
-	panel.add(this);
-
-	setBounds(new Rectangle(new Point(x, y), getPreferredSize()));
-
-	panel.add(new BTreeDisplay(tree.left, x - 20, y + 20));
-	panel.add(new BTreeDisplay(tree.right, x + 20, y + 20)); 
-	} 
+		if (tree != null) 
+		{ 
+			String value = String.valueOf(tree.value); 
+			int pos = SwingConstants.CENTER;
+			setText(value);
+			panel.add(this);
+			setBounds(new Rectangle(new Point(x, y), getPreferredSize()));
+			panel.add(new BTreeDisplay(tree.left, x - 20, y + 20));
+			panel.add(new BTreeDisplay(tree.right, x + 20, y + 20)); 
+		} 
 	}
 }		

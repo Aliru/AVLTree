@@ -171,6 +171,6 @@ public class AVLNode
 		 
 		 public void get()
 		 {
-			 System.out.println(this.value + this.right.value + this.left.value + this.parent.value);
+			  System.out.println(this.value + this.right.value + this.left.value + this.parent.value);
 		 }
 }

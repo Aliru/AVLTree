@@ -14,7 +14,7 @@ public class Test {
 		  System.out.println(root.getLeft().getValue() + ", with height " + root.getLeft().getHeight());
 		  System.out.println(root.getRight().getValue() + ", with height " + root.getRight().getHeight());
 		  tree.print();
-		  //tree.delete(8);
+		  tree.delete(8);
 		  SwingUtilities.invokeLater(new Runnable() { public void run() {new BTreeDisplay(root, 250, 50);}});
 		  //System.out.println(root.getLeft().getRight().getValue() + ", with height " + root.getLeft().getRight().getLeft().getHeight());
 		  //System.out.println(root.getRight().getRight().getValue() + ", with height " + root.getRight().getRight().getHeight());

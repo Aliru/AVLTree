@@ -165,7 +165,7 @@ public class AVLTree
 			   newNode = newNode.getParent();
 		     }
 		     else
-			   break;
+			    break;
 		  }
 		 return keyNode;
 	}
