@@ -18,7 +18,7 @@ public class Test {
 		  SwingUtilities.invokeLater(new Runnable() { public void run() {new BTreeDisplay(root);}});
 		  //System.out.println(root.getLeft().getRight().getValue() + ", with height " + root.getLeft().getRight().getLeft().getHeight());
 		  //System.out.println(root.getRight().getRight().getValue() + ", with height " + root.getRight().getRight().getHeight());
-		  //tree.print();
+		  tree.print();  //new tree print for check GitHub
 	}
 
 }
