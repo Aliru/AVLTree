@@ -21,14 +21,15 @@ import java.util.ArrayList;
 public class BTreeDisplay extends AVLPaint
 {
 	static JFrame jfrm;
-	static JPanel panel;
+	static AVLPaint panel;
 	
 	static ArrayList <NodeEdge> Tree = new ArrayList();
 	
 	static 
 	{
 	jfrm = new JFrame("Paint Demo");
-	panel = new JPanel();
+	panel = new AVLPaint();
+	panel.setTree(Tree);
 	jfrm.add(panel); 
 	jfrm.setSize(500, 500);
 	jfrm.setLocationRelativeTo(null);
@@ -44,10 +45,10 @@ public class BTreeDisplay extends AVLPaint
 		{ 
 			String value = String.valueOf(tree.value); 
 			int pos = SwingConstants.CENTER;
-			//Tree.add(new NodeEdge(250, 50, ));
-			setBounds(new Rectangle(new Point(x, y), getPreferredSize()));
-			panel.add(new BTreeDisplay(tree.left, x - 25, y + 20));
-			panel.add(new BTreeDisplay(tree.right, x + 15, y + 20)); 
+			Tree.add(new NodeEdge(x, y, x - 20, y + 20, x + 20, y + 20, value ));
+			//setBounds(new Rectangle(new Point(x, y), getPreferredSize()));
+			panel.add(new BTreeDisplay(tree.left, x - 20, y + 20));
+			panel.add(new BTreeDisplay(tree.right, x + 20, y + 20)); 
 		} 
 	}
 }		

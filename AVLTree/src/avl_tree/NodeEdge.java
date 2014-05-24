@@ -8,9 +8,9 @@ public class NodeEdge
 	public int yLeftEdge;
 	public int xRighrEdge;
 	public int yRighrEdge;
-	public int key;
+	public String key;
 	
-	public NodeEdge(int xn, int yn, int xel, int yel, int xer, int yer, int k)
+	public NodeEdge(int xn, int yn, int xel, int yel, int xer, int yer, String k)
 	{
 		this.x = xn;
 		this.y = yn;

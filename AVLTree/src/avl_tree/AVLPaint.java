@@ -20,8 +20,26 @@ import java.util.ArrayList;
 
 public class AVLPaint extends JPanel
 {
+
+	private ArrayList <NodeEdge> mTree;
+	
+	@Override
 	public void paintComponent(Graphics g)
 	{
-		
+		for (NodeEdge i : mTree)
+		{
+			g.setColor(Color.BLUE);
+			g.fillRect (i.x, i.y, 10, 10);
+			g.drawString(i.key, i.x, i.y);
+	    	g.setColor(Color.BLACK);
+	    	g.drawLine(i.x, i.y, i.xLeftEdge, i.yLeftEdge);
+	    	g.drawLine(i.x, i.y, i.xRighrEdge, i.yRighrEdge);
+		}
 	}
+	
+	public void setTree(ArrayList <NodeEdge> param)
+	{
+		mTree = param;
+	}
+
 }
