@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class Test {
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		  AVLTree tree = new AVLTree(10,5,20,8,128,88,4,7,2);
 		  final AVLNode root = tree.getRoot();
@@ -17,11 +17,16 @@ public class Test {
 		  //String key = JOptionPane.showInputDialog( "Enter key" ); //add Exceptions
 		  //int value = Integer.parseInt(key); 
 		  //tree.delete(value);
+		  tree.insert(75);
+		  tree.insert(0);
+		  System.out.println(tree.getRoot().value);
+		  tree.print();
 		  SwingUtilities.invokeLater(new Runnable() { public void run() {new BTreeDisplay(root, 250, 50);}});
-		  String key = JOptionPane.showInputDialog( "Enter key" ); //add Exceptions
-		  int value = Integer.parseInt(key); 
-		  tree.delete(value);
-		  SwingUtilities.invokeLater(new Runnable() { public void run() {new BTreeDisplay(root, 250, 50);}});
+		  //String key = JOptionPane.showInputDialog( "Enter key" ); //add Exceptions
+		  //int value = Integer.parseInt(key); 
+		  //tree.delete(value);
+		  //Thread.sleep(3000);
+		  //SwingUtilities.invokeLater(new Runnable() { public void run() {new BTreeDisplay(root, 250, 50);}});
 		  //System.out.println(root.getLeft().getRight().getValue() + ", with height " + root.getLeft().getRight().getLeft().getHeight());
 		  //System.out.println(root.getRight().getRight().getValue() + ", with height " + root.getRight().getRight().getHeight());
 		  //tree.print();  //new tree print for check GitHub

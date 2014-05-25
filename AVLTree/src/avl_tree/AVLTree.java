@@ -31,9 +31,9 @@ public class AVLTree
 		 else 
 		 {
 			 root.insertToLeaf(node);
-		 AVLNode keyNode = updateHeightsAndDetectKeyNode(node);
-		 if (keyNode != null) // rotate to adjust the tree
-			   adjustTreeByRotation(keyNode);
+			 AVLNode keyNode = updateHeightsAndDetectKeyNode(node);
+			 if (keyNode != null) // rotate to adjust the tree
+				 adjustTreeByRotation(keyNode);
 		 }
 	}
 	
@@ -44,6 +44,7 @@ public class AVLTree
 		  else 
 		  {
 			   AVLNode newNode = new AVLNode(value);
+			   //newNode.color = 'g';
 			   root.insertToLeaf(newNode);
 			   AVLNode keyNode = updateHeightsAndDetectKeyNode(newNode);
 			   if (keyNode != null) // rotate to adjust the tree

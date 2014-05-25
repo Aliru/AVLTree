@@ -6,6 +6,7 @@ public class AVLNode
 		 public AVLNode left, right, parent;
 		 public int value;
 		 public int height;
+		 public char color;
 		 
 		 public AVLNode(AVLNode node)
 		 {
@@ -13,12 +14,14 @@ public class AVLNode
 			  this.height = node.height;
 			  this.left = node.left;
 			  this.right = node.right;
+			  this.color = 'g';
 		 }
 		  
 		 public AVLNode(int v)
 		 {
 			  this.value = v;
 			  this.height = 0;
+			  this.color = 'g';
 		 }
 		  
 		 public int getValue()
@@ -38,9 +41,10 @@ public class AVLNode
 		  
 		 public void setLeft(AVLNode l)
 		 {
+			  this.setBlue();
 			  this.left = l;
 			  if (l != null)
-			  l.parent = this;
+				  l.parent = this;
 		 }
 		  
 		 public AVLNode getRight() 
@@ -50,9 +54,10 @@ public class AVLNode
 		  
 		 public void setRight(AVLNode r)
 		 {
+			  this.setBlue();
 			  this.right = r;
 			  if (r != null)
-			  r.parent = this;
+				  r.parent = this;
 		 }
 		  
 		 public int getHeight() 
@@ -100,10 +105,11 @@ public class AVLNode
 		 			  
 		 public void insertToLeaf(AVLNode node)
 		 {
+			  this.setBlue();
 			  if (node.value == value)
 			  {
-			   System.out.println("Duplicate node " + value);
-			   return;
+				   System.out.println("Duplicate node " + value);
+				   return;
 			  }
 			  else 
 			  {
@@ -164,9 +170,20 @@ public class AVLNode
 		 
 		 public void print_inorder()
 		 {
-			  if (left != null) left.print_inorder();
-			  		System.out.print(value + " ");
-			  if (right != null) right.print_inorder();
+			  if (left != null) 
+				  left.print_inorder();
+			  System.out.print(value + " ");
+			  if (right != null) 
+				  right.print_inorder();
+		 }
+		 
+		 public void setBlue()
+		 {
+			 if (left != null) 
+				 left.setBlue();
+		  	 this.color = 'b';
+		  	 if (right != null)
+		  		 right.setBlue();
 		 }
 		 
 		 public void get()

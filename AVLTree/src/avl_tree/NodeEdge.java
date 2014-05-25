@@ -6,11 +6,12 @@ public class NodeEdge
 	public int y;
 	public int xLeftEdge;
 	public int yLeftEdge;
-	public int xRighrEdge;
-	public int yRighrEdge;
+	public int xRightEdge;
+	public int yRightEdge;
 	public String key;
+	public char rectangleColor;
 	
-	public NodeEdge(int xn, int yn, int xel, int yel, int xer, int yer, String k)
+	/*public NodeEdge(int xn, int yn, int xel, int yel, int xer, int yer, String k, char c)
 	{
 		this.x = xn;
 		this.y = yn;
@@ -19,5 +20,6 @@ public class NodeEdge
 		this.xRighrEdge = xer;
 		this.yRighrEdge = yer;
 		this.key = k;
-	}
+		this.rectangleColor = c;
+	}*/
 }
