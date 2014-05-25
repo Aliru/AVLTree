@@ -23,8 +23,8 @@ public class Test {
 		  System.out.println(tree.getRoot().value);
 		  tree.print();
 		  updateScreenTree(tree.getRoot());
-		  Thread.sleep(10000);
-		  tree.insert(36);
+		  Thread.sleep(5000);
+		  tree.insert(4);
 		  updateScreenTree(tree.getRoot());
 		  //
 		  //String key = JOptionPane.showInputDialog( "Enter key" ); //add Exceptions
