@@ -29,35 +29,34 @@ public class BTreeDisplay extends NodeEdge
 	{
 	jfrm = new JFrame("Paint Demo");
 	panel = new AVLPaint();
-	panel.setTree(Tree);
+	//panel.setTree(Tree);
 	jfrm.add(panel); 
 	jfrm.setSize(500, 500);
 	jfrm.setLocationRelativeTo(null);
 	jfrm.setVisible(true);
 	panel.setLayout(null);
+	panel.setTree(Tree);
 	//panel.setBounds(0, 0, 250, 250);
 	}
 
 	
 	BTreeDisplay(AVLNode tree, int x, int y)
-	{ 
-		
-	if (tree != null) 
-	{ 
-	String value = String.valueOf(tree.value);
-	this.x = x;
-	this.y = y;
-	xLeftEdge = x - 20;
-	yLeftEdge = y + 20;
-	xRightEdge = x + 20;
-	yRightEdge = y + 20;
-	key = value;
-	this.rectangleColor = tree.color;
-
-	Tree.add(new BTreeDisplay(tree.left, x - 20, y + 20));
-	Tree.add(new BTreeDisplay(tree.right, x + 20, y + 20));
-
-	} 
+	{
+		if (tree != null) 
+		{ 
+			String value = String.valueOf(tree.value);
+			this.x = x;
+			this.y = y;
+			this.xLeftEdge = x - 20;
+			this.yLeftEdge = y + 20;
+			this.xRightEdge = x + 20;
+			this.yRightEdge = y + 20;
+			this.key = value;
+			this.rectangleColor = tree.color;
+			Tree.add(new BTreeDisplay(tree.left, x - 20, y + 20));
+			Tree.add(new BTreeDisplay(tree.right, x + 20, y + 20));
+			this.initialised = true;
+		} 
 	}
 	
 	/*BTreeDisplay(AVLNode tree, int x, int y)

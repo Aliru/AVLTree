@@ -10,6 +10,7 @@ public class NodeEdge
 	public int yRightEdge;
 	public String key;
 	public char rectangleColor;
+	public boolean initialised;
 	
 	/*public NodeEdge(int xn, int yn, int xel, int yel, int xer, int yer, String k, char c)
 	{

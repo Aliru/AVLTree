@@ -28,24 +28,27 @@ public class AVLPaint extends JPanel
 	{
 		for (NodeEdge i : mTree)
 		{
-			switch(i.rectangleColor)
+			if (i.initialised == true)
 			{
-			case 'b':
-				g.setColor(Color.BLUE);
-				break;
-			case 'g':
-				g.setColor(Color.GREEN);
-				break;
-			case 'r':
-				g.setColor(Color.RED);
-				break;
+				switch(i.rectangleColor)
+				{
+				case 'b':
+					g.setColor(Color.BLUE);
+					break;
+				case 'g':
+					g.setColor(Color.GREEN);
+					break;
+				case 'r':
+					g.setColor(Color.RED);
+					break;
+				}
+				//g.setColor(Color.BLUE);
+				g.fillRect (i.x, i.y, 10, 10);
+				g.drawString(i.key, i.x, i.y);
+		    	g.setColor(Color.BLACK);
+		    	g.drawLine(i.x, i.y, i.xLeftEdge, i.yLeftEdge);
+		    	g.drawLine(i.x, i.y, i.xRightEdge, i.yRightEdge);
 			}
-			//g.setColor(Color.BLUE);
-			g.fillRect (i.x, i.y, 10, 10);
-			g.drawString(i.key, i.x, i.y);
-	    	g.setColor(Color.BLACK);
-	    	g.drawLine(i.x, i.y, i.xLeftEdge, i.yLeftEdge);
-	    	g.drawLine(i.x, i.y, i.xRightEdge, i.yRightEdge);
 		}
 	}
 	

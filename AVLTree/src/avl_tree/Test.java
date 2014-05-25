@@ -21,11 +21,18 @@ public class Test {
 		  tree.insert(0);
 		  System.out.println(tree.getRoot().value);
 		  tree.print();
-		  SwingUtilities.invokeLater(new Runnable() { public void run() {new BTreeDisplay(root, 250, 50);}});
+		  SwingUtilities.invokeLater(new Runnable() 
+		  { 
+			  public void run() 
+			  {
+			  BTreeDisplay.Tree.add(new BTreeDisplay(root, 250, 50)); 
+			  BTreeDisplay.panel.invalidate(); 
+			  BTreeDisplay.panel.repaint();
+			  }
+		  });
 		  //String key = JOptionPane.showInputDialog( "Enter key" ); //add Exceptions
 		  //int value = Integer.parseInt(key); 
 		  //tree.delete(value);
-		  //Thread.sleep(3000);
 		  //SwingUtilities.invokeLater(new Runnable() { public void run() {new BTreeDisplay(root, 250, 50);}});
 		  //System.out.println(root.getLeft().getRight().getValue() + ", with height " + root.getLeft().getRight().getLeft().getHeight());
 		  //System.out.println(root.getRight().getRight().getValue() + ", with height " + root.getRight().getRight().getHeight());
