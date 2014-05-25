@@ -32,8 +32,11 @@ public class AVLPaint extends JPanel
 			g.fillRect (i.x, i.y, 10, 10);
 			g.drawString(i.key, i.x, i.y);
 	    	g.setColor(Color.BLACK);
+	    	if (i != mTree.get(mTree.size() - 1))
+	    	{
 	    	g.drawLine(i.x, i.y, i.xLeftEdge, i.yLeftEdge);
 	    	g.drawLine(i.x, i.y, i.xRighrEdge, i.yRighrEdge);
+	    	}
 		}
 	}
 	

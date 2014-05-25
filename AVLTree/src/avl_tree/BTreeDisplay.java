@@ -18,12 +18,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-public class BTreeDisplay extends AVLPaint
+public class BTreeDisplay //extends AVLPaint
 {
 	static JFrame jfrm;
 	static AVLPaint panel;
 	
-	static ArrayList <NodeEdge> Tree = new ArrayList();
+	static ArrayList <NodeEdge> Tree = new ArrayList<NodeEdge>();
 	
 	static 
 	{
@@ -40,15 +40,24 @@ public class BTreeDisplay extends AVLPaint
 
 	BTreeDisplay(AVLNode tree, int x, int y)
 	{ 
-		
+		BTreeDisplay b;
 		if (tree != null) 
 		{ 
-			String value = String.valueOf(tree.value); 
-			int pos = SwingConstants.CENTER;
-			Tree.add(new NodeEdge(x, y, x - 20, y + 20, x + 20, y + 20, value ));
-			//setBounds(new Rectangle(new Point(x, y), getPreferredSize()));
-			panel.add(new BTreeDisplay(tree.left, x - 20, y + 20));
-			panel.add(new BTreeDisplay(tree.right, x + 20, y + 20)); 
+			String value = String.valueOf(tree.value);
+			if ((tree.left != null) && (tree.right != null))
+				Tree.add(new NodeEdge(x, y, x - 20, y + 20, x + 20, y + 20, value ));
+			else
+				if ((tree.left == null) && (tree.right == null))
+					Tree.add(new NodeEdge(x, y, x, y, x, y, value ));
+				else
+					if (tree.left == null)
+						Tree.add(new NodeEdge(x, y, x, y, x + 20, y + 20, value ));
+					else
+						Tree.add(new NodeEdge(x, y, x - 20, y + 20, x, y, value ));
+			b = new BTreeDisplay(tree.left, x - 20, y + 20);
+			b = new BTreeDisplay(tree.right, x + 20, y + 20);
+			//tree.panel.add(new BTreeDisplay(tree.left, x - 20, y + 20));
+			//tree.panel.add(new BTreeDisplay(tree.right, x + 20, y + 20)); 
 		} 
 	}
 }		
