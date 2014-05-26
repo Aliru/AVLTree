@@ -1,6 +1,7 @@
 package avl_tree;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -13,7 +14,7 @@ public class AVLTree
 		root = null;
 	}
 	
-	public AVLTree(int... values) 
+	public AVLTree(int... values) throws Exception 
 	{
 		 for (int value : values)
 			 insert(value);
@@ -37,7 +38,7 @@ public class AVLTree
 		 }
 	}
 	
-	public void insert(int value)
+	public void insert(int value) throws Exception
 	{
 		  if (root == null)
 			  root = new AVLNode(value);
@@ -50,15 +51,17 @@ public class AVLTree
 			   if (keyNode != null) // rotate to adjust the tree
 				   adjustTreeByRotation(keyNode);
 		  }
+		  final AVLNode fROOT = root;
+		  Test.updateScreenTree(fROOT);
 	}
 	
-	public void delete(AVLNode node)
+	public void delete(AVLNode node) throws Exception 
 	{
 		  int value = node.value;
 		  delete(value);
 	}
 		  
-	public void delete(int value) 
+	public void delete(int value) throws Exception 
 	{
 		  AVLNode parentOfDeletedLeaf = deleteBeforeAdjustment(value);
 		  if (parentOfDeletedLeaf != null) 
@@ -90,7 +93,7 @@ public class AVLTree
 		return null;
 	}
 		  
-	public AVLNode deleteBeforeAdjustment(int value) 
+	public AVLNode deleteBeforeAdjustment(int value) throws Exception
 	{
 		AVLNode currentNode = root;
 		while (currentNode != null) 
@@ -103,6 +106,9 @@ public class AVLTree
 		System.out.println();System.out.println(currentNode.getParent().getValue());
 		if (currentNode != null) 
 		{
+			final AVLNode fROOT = root;
+			currentNode.color = 'r';
+			Test.updateScreenTree(fROOT);
 		    while (!currentNode.isLeaf()) 
 		    {
 		    	AVLNode replacement = currentNode.getBalanceFactor() < 0 ? currentNode.right.getLeftmost() : currentNode.left.getRightmost();

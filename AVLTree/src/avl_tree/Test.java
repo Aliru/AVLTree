@@ -20,13 +20,13 @@ public class Test {
 		  //tree.delete(value);
 		  tree.insert(75);
 		  //tree.insert(0);
-		  System.out.println(tree.getRoot().value);
-		  tree.print();
-		  updateScreenTree(tree.getRoot());
-		  Thread.sleep(5000);
-		  tree.insert(4);
-		  updateScreenTree(tree.getRoot());
-		  Thread.sleep(5000);
+		  //System.out.println(tree.getRoot().value);
+		  //tree.print();
+		  //updateScreenTree(tree.getRoot());
+		  //Thread.sleep(5000);
+		  tree.delete(8);
+		  //updateScreenTree(tree.getRoot());
+		  //Thread.sleep(5000);
 		  tree.insert(50);
 		  updateScreenTree(tree.getRoot());
 		  //
@@ -39,7 +39,7 @@ public class Test {
 		  //tree.print();  //new tree print for check GitHub
 	}
 	
-	static public void updateScreenTree(final AVLNode Root)
+	static public void updateScreenTree(final AVLNode Root) throws Exception
 	  {
 		  SwingUtilities.invokeLater(new Runnable() 
 		  { 
@@ -54,6 +54,14 @@ public class Test {
 			  }
 		  }
 		  });
+		  try
+		  {
+			  Thread.sleep(5000);
+		  }
+		  catch (Exception e)
+		  {
+			  e.printStackTrace();
+		  }
 	  }
 
 }
