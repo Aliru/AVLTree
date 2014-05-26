@@ -26,6 +26,9 @@ public class Test {
 		  Thread.sleep(5000);
 		  tree.insert(4);
 		  updateScreenTree(tree.getRoot());
+		  Thread.sleep(5000);
+		  tree.insert(50);
+		  updateScreenTree(tree.getRoot());
 		  //
 		  //String key = JOptionPane.showInputDialog( "Enter key" ); //add Exceptions
 		  //int value = Integer.parseInt(key); 

@@ -45,14 +45,53 @@ public class BTreeDisplay extends NodeEdge
 		if (tree != null) 
 		{ 
 			String value = String.valueOf(tree.value);
-			this.x = x;
-			this.y = y;
-			this.xLeftEdge = x - 20;
-			this.yLeftEdge = y + 20;
-			this.xRightEdge = x + 20;
-			this.yRightEdge = y + 20;
-			this.key = value;
-			this.rectangleColor = tree.color;
+			if ((tree.left != null) && (tree.right != null))
+			{
+				this.x = x;
+				this.y = y;
+				this.xLeftEdge = x - 20;
+				this.yLeftEdge = y + 20;
+				this.xRightEdge = x + 20;
+				this.yRightEdge = y + 20;
+				this.key = value;
+				this.rectangleColor = tree.color;
+				
+			}
+			else
+				if ((tree.left == null) && (tree.right == null))
+				{
+					this.x = x;
+					this.y = y;
+					this.xLeftEdge = x;
+					this.yLeftEdge = y;
+					this.xRightEdge = x;
+					this.yRightEdge = y;
+					this.key = value;
+					this.rectangleColor = tree.color;
+				}
+				else
+					if (tree.left == null)
+					{
+						this.x = x;
+						this.y = y;
+						this.xLeftEdge = x;
+						this.yLeftEdge = y;
+						this.xRightEdge = x + 20;
+						this.yRightEdge = y + 20;
+						this.key = value;
+						this.rectangleColor = tree.color;
+					}
+					else
+					{
+						this.x = x;
+						this.y = y;
+						this.xLeftEdge = x - 20;
+						this.yLeftEdge = y + 20;
+						this.xRightEdge = x;
+						this.yRightEdge = y;
+						this.key = value;
+						this.rectangleColor = tree.color;
+					}
 			Tree.add(new BTreeDisplay(tree.left, x - 20, y + 20));
 			Tree.add(new BTreeDisplay(tree.right, x + 20, y + 20));
 			this.initialised = true;
